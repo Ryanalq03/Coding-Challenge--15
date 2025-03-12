@@ -18,6 +18,8 @@ function addRiskItem(riskName, riskLevel, department){
     const riskInfo = document.createElement('p');
     riskInfo.textContent = `Risk: ${riskName} | Level: ${riskLevel} | Department: ${department}`;
     riskCard.appendChild(riskInfo);
+    // Appends the risk card
+    riskDashboard.appendChild(riskCard);
 }
 
 //Added form submission to add new risk items
@@ -28,7 +30,7 @@ riskForm.addEventListener('submit', function(e){
 
     //Gets values from the form inputs
     const riskName = document.getElementById('riskName').value;
-    const riskLevel = document.getElementById('riskLevel').Value;
+    const riskLevel = document.getElementById('riskLevel').value;
     const riskDepartment = document.getElementById('riskDepartment').value;
 
     addRiskItem(riskName, riskLevel, riskDepartment);
