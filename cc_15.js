@@ -35,3 +35,7 @@ riskForm.addEventListener('submit', function(e){
     riskForm.reset();
 
 });
+
+//Test Cases:
+addRiskItem("Data Breach", "High", "IT");
+addRiskItem("Supply Chain Disruption", "Medium", "Operations");
