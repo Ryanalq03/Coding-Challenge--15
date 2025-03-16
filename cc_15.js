@@ -88,7 +88,7 @@ increaseRiskLevelButton.addEventListener('click', function() {
             //Updates risk info text
             const riskNameText = parts[0].split(':')[1].trim();
             const departmentText = parts[2].split(':')[1].trim();
-            riskInfo.textContent = `{Risk $riskNameText} | Level: ${newLevel} | ${departmentText}`;
+            riskInfo.textContent = `Risk: ${riskNameText} | Level: ${newLevel} | Department: ${departmentText}`;
             //Updates color based on new risk
             card.style.backgroundColor = getRiskColor(newLevel);
     });
