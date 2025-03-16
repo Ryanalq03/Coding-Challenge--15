@@ -64,7 +64,37 @@ riskForm.addEventListener('submit', function(e){
 
 });
 
+//Task 5 Implemening Bulk Updates
+
+//Increases risk level for all cards when clicked
+const increaseRiskLevelButton = document.getElementById('increasesRiskLevels');
+increaseRiskLevelButton.addEventListener('click', function() {
+    //Selects all risk cards
+    const riskCards = document.querySelectorAll('.riskCard');
+    riskCards.forEach(function(card) {
+        const riskInfo = card.querySelector('p');
+        const parts = riskInfo.textContent.split('|').map(part => part.trim());
+        let currentLevel = parts[1].split(':')[1].trim();
+        let newLevel;
+        if (currentLevel === "Low") {
+            newLevel = "Medium";
+        }
+            else if (currentLevel === "Medium") {
+            newLevel = "High";
+            }
+            else {
+                newLevel = "High"; //If alr high it remains unchanged
+            }
+            //Updates risk info text
+            const riskNameText = parts[0].split(':')[1].trim();
+            const departmentText = parts[2].split(':')[1].trim();
+            riskInfo.textContent = `{Risk $riskNameText} | Level: ${newLevel} | ${departmentText}`;
+            //Updates color based on new risk
+            card.style.backgroundColor = getRiskColor(newLevel);
+    });
+});
 //Test Cases:
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+addRiskItem("Employee Retention", "Low", "HR");
 
