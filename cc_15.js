@@ -6,6 +6,18 @@ const riskDashboard = document.getElementById('riskDashboard');
 //Reads the console message
 console.log("Risk Dashboard Loaded");
 
+//Task 4 Categorizing Risks by Level
+
+//Adds function to return the risk color
+function getRiskColor(level) {
+    switch (level) {
+        case "Low": return "green";
+        case "Medium": return "yellow";
+        case "High": return "red";
+        default: return "white";
+    }
+}
+
 //Task 2: Adding Dynamic Risk Items
 
 //Added addRiskItem function 
@@ -13,6 +25,8 @@ function addRiskItem(riskName, riskLevel, department){
     //Created a new risk card element
     const riskCard = document.createElement('div');
     riskCard.className = 'riskCard';
+//Task 4/sets background color based on risk level
+riskCard.style.backgroundColor = getRiskColor(riskLevel);
 
     //Created element to display risk details
     const riskInfo = document.createElement('p');
@@ -66,3 +80,4 @@ function addRiskItem(riskName, riskLevel, department) {
    //Appends the risk card to dashboard
    riskDashboard.appendChild(riskCard);
 }
+
