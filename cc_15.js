@@ -50,7 +50,12 @@ function addRiskItem(riskName, riskLevel, department) {
    riskCard.className = 'riskCard';
    
    //Creates element to display risk details
-   const riskInfo = document.createElement('button');
+   const riskInfo = document.createElement('p');
+   riskInfo.textContent = `Risk: ${riskName} | Level: ${riskLevel} | Department: ${department}`;
+   riskCard.appendChild(riskInfo);
+
+   //Creates resolve button
+   const resolveButton = document.createElement('button');
    resolveButton.textContent = 'Resolve';
    resolveButton.addEventListener('click', function(e) {
         e.stopPropagation(); //Adresses Task 6
